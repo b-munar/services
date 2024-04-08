@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+  service_db:
+    image: postgres:15-bullseye
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_PORT: 5432
+    ports:
+      - 6700:5432
+    networks:
+      - service_net
+    deploy:  
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: 300M
+
+  service:
+    build: .
+    environment:
+      GUNICORN: false
+    volumes:
+      - .:/usr/app
+    ports:
+      - 6750:80
+    networks:
+      - service_net
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: 300M
+    depends_on:
+      service_db:
+        condition: service_started
+
+networks:
+  service_net:
+    driver: bridge
+    name: service_net
