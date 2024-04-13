@@ -46,5 +46,5 @@ class ServiceController(Resource):
         session.close()
         
         services = [service_schema.dump(service) for service in query]
-        return services, 200
+        return {"services": services}, 200
 
