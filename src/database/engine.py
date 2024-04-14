@@ -17,11 +17,11 @@ def url_postgresql_for_create_engine(username, host, database, password, port):
     print(url) 
     return url
 
-def engine(username=os.getenv("DB_USER"),
-       host=os.getenv("DB_HOST"),
-       database=os.getenv("DB_NAME"),
-       password=os.getenv("DB_PASSWORD"),
-       port=os.getenv("DB_PORT")
+def engine(username=os.getenv("SERVICES_DB_USER"),
+       host=os.getenv("SERVICES_DB_HOST"),
+       database=os.getenv("SERVICES_DB_NAME"),
+       password=os.getenv("SERVICES_DB_PASSWORD"),
+       port=os.getenv("SERVICES_DB_PORT")
        ):
     
     engine = create_engine(
