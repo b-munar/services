@@ -77,16 +77,13 @@ class SportmenController(Resource):
         return service_created_dump, 201
 
     def get(self, **kwargs):
-        service_schema = ServiceSerializeSchema()
         sportmen_schema = SportmenSerializeSchema()
 
         session = Session()
-        query = session.query(ServiceModel, Sportmen).join(Sportmen).filter(Sportmen.sportmen==kwargs["user"]["id"])
+        query = session.query(Sportmen).filter(Sportmen.sportmen==kwargs["user"]["id"]).all()
 
         session.close()
-
-        print([service for service in query])
         
-        services = [(service_schema.dump(service[0]), sportmen_schema.dump(service[1]))  for service in query]
+        services = [sportmen_schema.dump(service)  for service in query]
         return {"services": services}, 200
         

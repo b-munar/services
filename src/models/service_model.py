@@ -3,7 +3,7 @@ from src.database.base import Base
 from datetime import datetime, timezone
 from uuid import uuid4
 from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, Mapped
 
 class ServiceModel(Base):
     __tablename__ = 'service'
@@ -22,6 +22,7 @@ class ServiceModel(Base):
 class Sportmen(Base):
     __tablename__ = 'sportmen'
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4)
-    service = Column(UUID(as_uuid=True), ForeignKey("service.id"), nullable=False)
+    service_id = Column(UUID(as_uuid=True), ForeignKey("service.id"), nullable=False)
     sportmen = Column(UUID(as_uuid=True), nullable=False)
     amount =  Column(Integer(), nullable=False)
+    service = relationship("ServiceModel", back_populates="sportmen", lazy="joined")
