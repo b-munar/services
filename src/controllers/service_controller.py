@@ -1,8 +1,9 @@
 from flask_restful import Resource
 from flask import request
 
+from schemas.sportmen_schema import SportmenDeserializeSchema, SportmenSerializeSchema
 from src.database.session import Session
-from src.models.service_model import ServiceModel
+from src.models.service_model import ServiceModel, Sportmen
 from src.schemas.service_schema import ServiceDeserializeSchema, ServiceSerializeSchema
 from src.utils.authorization import authorization
 
@@ -42,9 +43,50 @@ class ServiceController(Resource):
         service_schema = ServiceSerializeSchema()
 
         session = Session()
-        query = session.query(ServiceModel).filter(ServiceModel.user==kwargs["user"]["id"])
+        query = session.query(ServiceModel)
         session.close()
         
         services = [service_schema.dump(service) for service in query]
         return {"services": services}, 200
 
+class SportmenController(Resource):
+    method_decorators = [authorization]
+    def post(self, **kwargs):
+        if(request.data):
+            request_json = request.get_json()
+        else:
+            return "", 400
+        
+        sportmen_create_schema = SportmenDeserializeSchema()
+        
+        errors = sportmen_create_schema.validate(request_json)
+        if errors:
+            print(errors)
+            return "", 400
+        
+        service_create_dump = sportmen_create_schema.dump(request_json)
+        service_create_dump["sportmen"] = kwargs["user"]["id"]
+
+        session = Session()
+        new_service = Sportmen(**service_create_dump)
+        session.add(new_service)
+        session.commit()
+
+        service_created_schema = SportmenSerializeSchema()
+        service_created_dump = service_created_schema.dump(new_service)
+        return service_created_dump, 201
+
+    def get(self, **kwargs):
+        service_schema = ServiceSerializeSchema()
+        sportmen_schema = SportmenSerializeSchema()
+
+        session = Session()
+        query = session.query(ServiceModel, Sportmen).join(Sportmen).filter(Sportmen.sportmen==kwargs["user"]["id"])
+
+        session.close()
+
+        print([service for service in query])
+        
+        services = [(service_schema.dump(service[0]), sportmen_schema.dump(service[1]))  for service in query]
+        return {"services": services}, 200
+        
