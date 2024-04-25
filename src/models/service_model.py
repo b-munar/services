@@ -25,4 +25,5 @@ class Sportmen(Base):
     service_id = Column(UUID(as_uuid=True), ForeignKey("service.id"), nullable=False)
     sportmen = Column(UUID(as_uuid=True), nullable=False)
     amount =  Column(Integer(), nullable=False)
+    date = Column(String(), nullable=False)
     service = relationship("ServiceModel", back_populates="sportmen", lazy="joined")
