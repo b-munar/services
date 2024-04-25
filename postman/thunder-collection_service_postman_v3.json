@@ -1,0 +1,170 @@
+{
+    "info": {
+        "_postman_id": "55d4050a-0bd0-486b-a71d-e2027946343c",
+        "name": "service",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "listar todos los servicios",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:6750/services",
+                    "path": [
+                        "services"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "6750"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOGEzYWQ3Ny03ZDNjLTQ3ZTMtOWM0Mi04NThjYTNlYzUyMjIiLCJpYXQiOjE3MTQwMDkxMDIsImV4cCI6MTcxNDAxOTkwMiwicm9sZSI6Mn0.B9mvDjmvdNBYvDp6N-m1YZ4zkzoKgD7g4fHCho06qjc",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "crear servicios",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "localhost:6750/services",
+                    "path": [
+                        "services"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "6750"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n \"name\": \"service 3\",\n \"description\": \"description 3\",\n \"cost\": 20.0,\n \"taxes\": 5.0,\n \"address\": \"direction\",\n  \"details\": \"details\"\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOGEzYWQ3Ny03ZDNjLTQ3ZTMtOWM0Mi04NThjYTNlYzUyMjIiLCJpYXQiOjE3MTQwMDkxMDIsImV4cCI6MTcxNDAxOTkwMiwicm9sZSI6Mn0.B9mvDjmvdNBYvDp6N-m1YZ4zkzoKgD7g4fHCho06qjc",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "ping",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:6750/services/ping",
+                    "path": [
+                        "services",
+                        "ping"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "6750"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n \"service\": \"servicee\"\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MmQyNGVhYy0yMDhjLTQ1NjYtOTE2Ny01NWRkODc3MzBlNzMiLCJpYXQiOjE3MDUxOTQ3NDMsImV4cCI6MTcwNTE5ODM0M30.CWQlyNPFAEVDoreJCFdTblFZwURFUsQXYxcauMX4d_U",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "agendar servicio",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "localhost:6750/services/sportmen",
+                    "path": [
+                        "services",
+                        "sportmen"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "6750"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n \"service_id\": \"253e8316-848d-4f18-bb7f-2c2a5edfbf71\",\n \"amount\": 2,\n \"date\": \"2000-01-01\"\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOGEzYWQ3Ny03ZDNjLTQ3ZTMtOWM0Mi04NThjYTNlYzUyMjIiLCJpYXQiOjE3MTQwMDkxMDIsImV4cCI6MTcxNDAxOTkwMiwicm9sZSI6Mn0.B9mvDjmvdNBYvDp6N-m1YZ4zkzoKgD7g4fHCho06qjc",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "obtener servicios agendados",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:6750/services/sportmen",
+                    "path": [
+                        "services",
+                        "sportmen"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "6750"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOGEzYWQ3Ny03ZDNjLTQ3ZTMtOWM0Mi04NThjYTNlYzUyMjIiLCJpYXQiOjE3MTQwMDkxMDIsImV4cCI6MTcxNDAxOTkwMiwicm9sZSI6Mn0.B9mvDjmvdNBYvDp6N-m1YZ4zkzoKgD7g4fHCho06qjc",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

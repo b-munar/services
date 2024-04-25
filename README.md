@@ -182,9 +182,10 @@ Permite realizar creación de servicios.
 <td>
 
 ```json
- {
- "service_id": "51d7ea07-bb98-4000-9a10-b60bfcf5c848",
- "amount": 2
+{
+ "service_id": "253e8316-848d-4f18-bb7f-2c2a5edfbf71",
+ "amount": 2,
+ "date": "2000-01-01"
 }
   ```
 </td>
@@ -206,9 +207,10 @@ Permite realizar creación de servicios.
 
 ```json
 {
-  "id": "6c697c2f-bb1f-4298-a5b3-ec67bbae42e4",
-  "service_id": "51d7ea07-bb98-4000-9a10-b60bfcf5c848",
+  "id": "df92d430-3913-4a5a-8f90-67f2e3ed540f",
+  "service_id": "253e8316-848d-4f18-bb7f-2c2a5edfbf71",
   "amount": 2,
+  "date": "2000-01-01",
   "service": {
     "name": "service 3",
     "description": "description 3",
@@ -269,35 +271,10 @@ NA
 {
   "services": [
     {
-      "id": "3e1bacc2-6bd5-4365-a804-f8f54c45dfe7",
-      "service_id": "06adb3d5-f9fe-4b20-acfe-62b50e9e0f80",
+      "id": "df92d430-3913-4a5a-8f90-67f2e3ed540f",
+      "service_id": "253e8316-848d-4f18-bb7f-2c2a5edfbf71",
       "amount": 2,
-      "service": {
-        "name": "service 1",
-        "description": "description 1",
-        "cost": 20.0,
-        "taxes": 5.0,
-        "address": "direction",
-        "details": "details"
-      }
-    },
-    {
-      "id": "6c697c2f-bb1f-4298-a5b3-ec67bbae42e4",
-      "service_id": "51d7ea07-bb98-4000-9a10-b60bfcf5c848",
-      "amount": 2,
-      "service": {
-        "name": "service 3",
-        "description": "description 3",
-        "cost": 20.0,
-        "taxes": 5.0,
-        "address": "direction",
-        "details": "details"
-      }
-    },
-    {
-      "id": "6a8b2b5a-6825-44cb-aea1-5b602bd8280b",
-      "service_id": "51d7ea07-bb98-4000-9a10-b60bfcf5c848",
-      "amount": 2,
+      "date": "2000-01-01",
       "service": {
         "name": "service 3",
         "description": "description 3",
