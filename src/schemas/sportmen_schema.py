@@ -1,5 +1,5 @@
 from marshmallow import Schema, fields
-from schemas.service_schema import ServiceDeserializeSchema
+from src.schemas.service_schema import ServiceDeserializeSchema
 
 class SportmenDeserializeSchema(Schema):
     service_id = fields.UUID(required=True)
